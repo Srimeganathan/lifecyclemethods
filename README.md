@@ -28,11 +28,12 @@ Step 7: Save and run the application.
 ## PROGRAM:
 ```
 /*
-Program to print the text “Welcome to Andriod LifeCycle”.
-Developed by:Srimeganathan S
-Registeration Number :212224230273
+Program to print the text “Hello World”.
+Developed by: SHARUKESH R
+Registeration Number : 212223220106
 */
 ```
+# ACTIVITYMAIN.XML
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -44,9 +45,10 @@ Registeration Number :212224230273
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to Andriod LifeCycle"
+        android:layout_width="137dp"
+        android:layout_height="25dp"
+        android:text="Hello World!"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,77 +56,97 @@ Registeration Number :212224230273
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-
+# MAINACTIVITY.JAVA
 ```
-
-package com.example.androidlifecyclemethods;
+package com.example.mob1;
 
 import android.os.Bundle;
-import android.widget.Toast;
+import android.util.Log;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "LifeCycleDemo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        Toast toast= Toast.makeText(getApplicationContext(),"OnCreated Executed",Toast.LENGTH_LONG);
-        toast.show();
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        Log.d(TAG, "onCreate called");
     }
 
-    protected void onStart(){
+    @Override
+    protected void onStart() {
         super.onStart();
-        Toast toast= Toast.makeText(getApplicationContext(),"OnStart Executed",Toast.LENGTH_LONG);
-        toast.show();
+        Log.d(TAG, "onStart called");
     }
 
-    protected void onResume(){
+    @Override
+    protected void onResume() {
         super.onResume();
-        Toast toast= Toast.makeText(getApplicationContext(),"OnResume Executed",Toast.LENGTH_LONG);
-        toast.show();
+        Log.d(TAG, "onResume called");
     }
 
-    protected void onPause(){
+    @Override
+    protected void onPause() {
         super.onPause();
-        Toast toast= Toast.makeText(getApplicationContext(),"onPause Executed",Toast.LENGTH_LONG);
-        toast.show();
+        Log.d(TAG, "onPause called");
     }
 
-    protected void onStop(){
+    @Override
+    protected void onStop() {
         super.onStop();
-        Toast toast= Toast.makeText(getApplicationContext(),"onStop Executed",Toast.LENGTH_LONG);
-        toast.show();
+        Log.d(TAG, "onStop called");
     }
 
-    protected void onRestart(){
+    @Override
+    protected void onRestart() {
         super.onRestart();
-        Toast toast= Toast.makeText(getApplicationContext(),"onRestart Executed",Toast.LENGTH_LONG);
-        toast.show();
+        Log.d(TAG, "onRestart called");
     }
 
-    protected void onDestroy(){
+    @Override
+    protected void onDestroy() {
         super.onDestroy();
-        Toast toast= Toast.makeText(getApplicationContext(),"onDestroy Executed",Toast.LENGTH_LONG);
-        toast.show();
+        Log.d(TAG, "onDestroy called");
     }
 }
 
 ```
-## OUTPUT
+# ANDROIDMANIFEST.XML
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-![WhatsApp Image 2026-02-10 at 1 30 23 PM](https://github.com/user-attachments/assets/eee6c3e5-4ec3-4d7d-972f-6af46a13bc5d)
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Methods"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
+
+## OUTPUT
+![WhatsApp Image 2026-02-07 at 8 50 19 AM](https://github.com/user-attachments/assets/2b7dcceb-7ac7-4429-8df6-1d0751ca426b)
+
 
 
 
